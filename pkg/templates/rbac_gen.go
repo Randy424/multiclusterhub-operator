@@ -161,9 +161,10 @@ package main
 //+kubebuilder:rbac:groups=cluster.open-cluster-management.io,resources=managedclustersets/join,verbs=create
 //+kubebuilder:rbac:groups=cluster.open-cluster-management.io,resources=placementdecisions;placements,verbs=get;list;watch
 //+kubebuilder:rbac:groups=cluster.open-cluster-management.io,resources=placements,verbs=get;list;create;update;watch;delete
-//+kubebuilder:rbac:groups=clusterview.open-cluster-management.io,resources=userpermissions,verbs=get
+//+kubebuilder:rbac:groups=clusterview.open-cluster-management.io,resources=managedclusters;kubevirtprojects;userpermissions,verbs=get;list;watch
 //+kubebuilder:rbac:groups=clusterview.open-cluster-management.io,resources=userpermissions,verbs=get;list
 //+kubebuilder:rbac:groups=config.openshift.io,resources=*;infrastructures,verbs=*
+//+kubebuilder:rbac:groups=config.openshift.io,resources=apiservers,verbs=get;list;watch
 //+kubebuilder:rbac:groups=config.openshift.io,resources=apiservers,verbs=get;list;watch
 //+kubebuilder:rbac:groups=config.openshift.io,resources=apiservers,verbs=list;get;watch
 //+kubebuilder:rbac:groups=config.openshift.io,resources=apiservers;infrastructures;infrastructures/status,verbs=get
@@ -191,7 +192,7 @@ package main
 //+kubebuilder:rbac:groups=discovery.open-cluster-management.io,resources=discoveryconfigs;discoveredclusters,verbs=list;watch
 //+kubebuilder:rbac:groups=extensions.hive.openshift.io,resources=agentclusterinstalls,verbs=list;watch
 //+kubebuilder:rbac:groups=extensions.hive.openshift.io,resources=agentclusterinstalls;imageclusterinstalls,verbs=create;delete;get;patch;update
-//+kubebuilder:rbac:groups=forklift.konveyor.io,resources=providers,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=forklift.konveyor.io,resources=migrations;providers;plans;networkmaps;storagemaps,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=hive.openshift.io,resources=clusterclaims;clusterdeployments;clusterpools;clusterimagesets;clusterprovisions;clusterdeprovisions;machinepools,verbs=list;watch
 //+kubebuilder:rbac:groups=hive.openshift.io,resources=clusterdeployments,verbs=create;delete;get;list;patch;update;watch
 //+kubebuilder:rbac:groups=hive.openshift.io,resources=clusterdeployments/status,verbs=get;watch
@@ -208,6 +209,7 @@ package main
 //+kubebuilder:rbac:groups=metal3.io,resources=baremetalhosts;provisionings,verbs=list;watch
 //+kubebuilder:rbac:groups=migration.k8s.io,resources=storageversionmigrations,verbs=create;delete;get;list;update;watch
 //+kubebuilder:rbac:groups=monitor.open-cluster-management.io,resources=*,verbs=create;delete;get;list;patch;update;watch
+//+kubebuilder:rbac:groups=monitoring.coreos.com,resources=prometheuses/api,verbs=get;create;update
 //+kubebuilder:rbac:groups=monitoring.coreos.com,resources=prometheusrules,verbs=create;delete;get;list;patch;update;watch
 //+kubebuilder:rbac:groups=monitoring.coreos.com,resources=prometheusrules,verbs=create;get;update
 //+kubebuilder:rbac:groups=monitoring.coreos.com,resources=servicemonitors,verbs=create;delete;get;list
@@ -265,6 +267,7 @@ package main
 //+kubebuilder:rbac:groups=route.openshift.io,resources=routes,verbs=create
 //+kubebuilder:rbac:groups=route.openshift.io,resources=routes,verbs=delete;get;list;update;watch
 //+kubebuilder:rbac:groups=route.openshift.io,resources=routes,verbs=get;list;watch
+//+kubebuilder:rbac:groups=route.openshift.io,resources=routes,verbs=get;list;watch
 //+kubebuilder:rbac:groups=route.openshift.io,resources=routes;routes/custom-host;routes/status,verbs=get;list;create;update;delete;deletecollection;watch;create
 //+kubebuilder:rbac:groups=search.open-cluster-management.io,resources=searches,verbs=get;list;patch;update;watch
 //+kubebuilder:rbac:groups=search.open-cluster-management.io,resources=searches,verbs=list;watch
@@ -273,6 +276,7 @@ package main
 //+kubebuilder:rbac:groups=siteconfig.open-cluster-management.io,resources=clusterinstances,verbs=create;delete;get;list;patch;update;watch
 //+kubebuilder:rbac:groups=siteconfig.open-cluster-management.io,resources=clusterinstances/finalizers,verbs=update
 //+kubebuilder:rbac:groups=siteconfig.open-cluster-management.io,resources=clusterinstances/status,verbs=get;patch;update
+//+kubebuilder:rbac:groups=storage.k8s.io,resources=storageclasses,verbs=get;list;watch
 //+kubebuilder:rbac:groups=storage.k8s.io,resources=storageclasses,verbs=list;watch
 //+kubebuilder:rbac:groups=storage.k8s.io,resources=storageclasses,verbs=watch;get;list
 //+kubebuilder:rbac:groups=submariner.io,resources=brokers,verbs=create;get;update;delete
@@ -282,6 +286,7 @@ package main
 //+kubebuilder:rbac:groups=submarineraddon.open-cluster-management.io,resources=submarinerconfigs/status,verbs=update;patch
 //+kubebuilder:rbac:groups=tower.ansible.com,resources=ansiblejobs,verbs=create;delete;get;list;patch;update;watch
 //+kubebuilder:rbac:groups=user.openshift.io,resources=users;groups,verbs=impersonate
+//+kubebuilder:rbac:groups=view.open-cluster-management.io,resources=managedclusterviews,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=wgpolicyk8s.io,resources=policyreports,verbs=create;delete;get;list;patch;update;watch
 //+kubebuilder:rbac:groups=wgpolicyk8s.io,resources=policyreports,verbs=list;watch
 //+kubebuilder:rbac:groups=work.open-cluster-management.io,resources=manifestworks,verbs=*
