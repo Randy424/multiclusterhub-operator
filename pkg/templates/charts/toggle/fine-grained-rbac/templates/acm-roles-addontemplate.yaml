@@ -128,6 +128,22 @@ spec:
               - get
               - list
               - watch
+            - apiGroups:
+              - migrations.kubevirt.io
+              resources:
+              - multinamespacevirtualmachinestoragemigrationplans
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - observability.open-cluster-management.io
+              resources:
+              - multiclusterobservabilities
+              verbs:
+              - get
+              - list
+              - watch
         - apiVersion: rbac.authorization.k8s.io/v1
           kind: ClusterRole
           metadata:
@@ -270,6 +286,22 @@ spec:
               - update
               - patch
               - delete
+            - apiGroups:
+              - migrations.kubevirt.io
+              resources:
+              - multinamespacevirtualmachinestoragemigrationplans
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - observability.open-cluster-management.io
+              resources:
+              - multiclusterobservabilities
+              verbs:
+              - get
+              - list
+              - watch
         - apiVersion: rbac.authorization.k8s.io/v1
           kind: ClusterRole
           metadata:
@@ -301,6 +333,73 @@ spec:
               - userpermissions
               verbs:
               - list
+            - apiGroups:
+              - ""
+              resources:
+              - namespaces
+              - configmaps
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - project.openshift.io
+              resources:
+              - projects
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - kubevirt.io
+              resources:
+              - kubevirts
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - user.openshift.io
+              resources:
+              - users
+              - groups
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - instancetype.kubevirt.io
+              resources:
+              - virtualmachineclusterinstancetypes
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - template.openshift.io
+              resources:
+              - templates
+              - processedtemplates
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - cdi.kubevirt.io
+              resources:
+              - datasources
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - hco.kubevirt.io
+              resources:
+              - hyperconvergeds
+              verbs:
+              - get
+              - list
+              - watch
         - apiVersion: rbac.authorization.k8s.io/v1
           kind: ClusterRole
           metadata:
@@ -350,6 +449,96 @@ spec:
               - userpermissions
               verbs:
               - list
+            - apiGroups:
+              - ""
+              resources:
+              - namespaces
+              verbs:
+              - get
+              - list
+            - apiGroups:
+              - ""
+              resources:
+              - configmaps
+              verbs:
+              - get
+              - list
+              - watch
+              - patch
+            - apiGroups:
+              - project.openshift.io
+              resources:
+              - projects
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - kubevirt.io
+              resources:
+              - kubevirts
+              verbs:
+              - get
+              - list
+              - watch
+              - create
+              - update
+              - patch
+              - delete
+            - apiGroups:
+              - user.openshift.io
+              resources:
+              - users
+              - groups
+              verbs:
+              - get
+              - list
+              - watch
+            - apiGroups:
+              - instancetype.kubevirt.io
+              resources:
+              - virtualmachineclusterinstancetypes
+              verbs:
+              - get
+              - list
+              - watch
+              - create
+              - update
+              - patch
+              - delete
+            - apiGroups:
+              - template.openshift.io
+              resources:
+              - templates
+              - processedtemplates
+              verbs:
+              - get
+              - list
+              - watch
+              - create
+              - update
+              - patch
+              - delete
+            - apiGroups:
+              - cdi.kubevirt.io
+              resources:
+              - datasources
+              verbs:
+              - get
+              - list
+              - watch
+              - create
+              - update
+              - patch
+              - delete
+            - apiGroups:
+              - hco.kubevirt.io
+              resources:
+              - hyperconvergeds
+              verbs:
+              - get
+              - list
+              - watch
         - apiVersion: rbac.authorization.k8s.io/v1
           kind: ClusterRole
           metadata:
