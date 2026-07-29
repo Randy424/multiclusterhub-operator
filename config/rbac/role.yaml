@@ -1487,6 +1487,26 @@ rules:
 - apiGroups:
   - search.open-cluster-management.io
   resources:
+  - collectorconfigs
+  verbs:
+  - create
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - search.open-cluster-management.io
+  resources:
+  - collectorconfigs/status
+  - searches/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - search.open-cluster-management.io
+  resources:
   - searches
   verbs:
   - get
@@ -1499,14 +1519,6 @@ rules:
   resources:
   - searches/finalizers
   verbs:
-  - update
-- apiGroups:
-  - search.open-cluster-management.io
-  resources:
-  - searches/status
-  verbs:
-  - get
-  - patch
   - update
 - apiGroups:
   - siteconfig.open-cluster-management.io

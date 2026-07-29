@@ -81,6 +81,7 @@ package main
 //+kubebuilder:rbac:groups=addon.open-cluster-management.io,resources=managedclusteraddons;managedclusteraddons/status;managedclusteraddons/finalizers,verbs=watch;create;update;delete;get;list;patch
 //+kubebuilder:rbac:groups=addon.open-cluster-management.io;agent.open-cluster-management.io;apps.open-cluster-management.io;cluster.open-cluster-management.io;operator.open-cluster-management.io;work.open-cluster-management.io;view.open-cluster-management.io;authentication.open-cluster-management.io;policy.open-cluster-management.io,resources=addondeploymentconfigs;addontemplates;channels;channels/status;channels/finalizers;deployables;deployables/status;gitopsclusters;gitopsclusters/status;gitopsclusters/finalizers;helmreleases;helmreleases/status;klusterletaddonconfigs;manifestworks;manifestworks/status;managedclusters;managedclustersetbindings;managedclustersets/bind;managedclusterviews;managedclusterviews/status;managedclusteraddons;managedserviceaccounts;multiclusterhubs;placements;placements/status;placement/finalizers;placementbindings;placementbindings/finalizers;placementdecisions;placementdecisions/status;placementdecisions/finalizers;placementrules;placementrules/status;placementrules/finalizers;subscriptions;subscriptions/finalizers;subscriptions/status;subscriptionstatuses;subscriptionreports;multiclusterapplicationsetreports;multiclusterapplicationsetreports/status;policies,verbs=get;list;watch;update;patch;create;delete;deletecollection
 //+kubebuilder:rbac:groups=admissionregistration.k8s.io,resources=mutatingwebhookconfigurations;validatingwebhookconfigurations,verbs=create;delete;get;list;patch;update;watch
+//+kubebuilder:rbac:groups=admissionregistration.k8s.io,resources=validatingwebhookconfigurations,verbs=get;patch;update
 //+kubebuilder:rbac:groups=admissionregistration.k8s.io;certificates.k8s.io;coordination.k8s.io;apiextensions.k8s.io,resources=certificatesigningrequests;customresourcedefinitions;leases;mutatingwebhookconfigurations;validatingwebhookconfigurations,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=agent-install.openshift.io,resources=agents;infraenvs;nmstateconfigs;agentserviceconfigs,verbs=list;watch
 //+kubebuilder:rbac:groups=agent-install.openshift.io,resources=infraenvs;nmstateconfigs,verbs=create;delete;get;patch;update
@@ -164,6 +165,7 @@ package main
 //+kubebuilder:rbac:groups=clusterview.open-cluster-management.io,resources=userpermissions,verbs=get
 //+kubebuilder:rbac:groups=clusterview.open-cluster-management.io,resources=userpermissions,verbs=get;list
 //+kubebuilder:rbac:groups=config.openshift.io,resources=*;infrastructures,verbs=*
+//+kubebuilder:rbac:groups=config.openshift.io,resources=apiservers,verbs=get;list;watch
 //+kubebuilder:rbac:groups=config.openshift.io,resources=apiservers,verbs=get;list;watch
 //+kubebuilder:rbac:groups=config.openshift.io,resources=apiservers,verbs=list;get;watch
 //+kubebuilder:rbac:groups=config.openshift.io,resources=apiservers;infrastructures;infrastructures/status,verbs=get
@@ -266,10 +268,11 @@ package main
 //+kubebuilder:rbac:groups=route.openshift.io,resources=routes,verbs=delete;get;list;update;watch
 //+kubebuilder:rbac:groups=route.openshift.io,resources=routes,verbs=get;list;watch
 //+kubebuilder:rbac:groups=route.openshift.io,resources=routes;routes/custom-host;routes/status,verbs=get;list;create;update;delete;deletecollection;watch;create
+//+kubebuilder:rbac:groups=search.open-cluster-management.io,resources=collectorconfigs,verbs=create;get;list;patch;update;watch
+//+kubebuilder:rbac:groups=search.open-cluster-management.io,resources=collectorconfigs/status;searches/status,verbs=get;patch;update
 //+kubebuilder:rbac:groups=search.open-cluster-management.io,resources=searches,verbs=get;list;patch;update;watch
 //+kubebuilder:rbac:groups=search.open-cluster-management.io,resources=searches,verbs=list;watch
 //+kubebuilder:rbac:groups=search.open-cluster-management.io,resources=searches/finalizers,verbs=update
-//+kubebuilder:rbac:groups=search.open-cluster-management.io,resources=searches/status,verbs=get;patch;update
 //+kubebuilder:rbac:groups=siteconfig.open-cluster-management.io,resources=clusterinstances,verbs=create;delete;get;list;patch;update;watch
 //+kubebuilder:rbac:groups=siteconfig.open-cluster-management.io,resources=clusterinstances/finalizers,verbs=update
 //+kubebuilder:rbac:groups=siteconfig.open-cluster-management.io,resources=clusterinstances/status,verbs=get;patch;update
